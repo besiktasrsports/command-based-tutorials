@@ -31,7 +31,10 @@ public class Robot extends TimedRobot {
   public static RobotMap m_robotMap;
   public static navxGyro m_navx;
   public static Encoder m_encoder;
-  public static frc.robot.sensors.Ultrasonic
+  public static Ultrasonic m_ultrasonic;
+  public static analogGyro m_analogGyro;
+  public static LimitSwitch m_limitSwitch;
+  public static AccelerometerExample m_accelerometer;
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -44,6 +47,12 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     m_driveTrain = new DriveTrain();
     m_robotMap = new RobotMap();
+    m_accelerometer= new AccelerometerExample();
+    m_analogGyro = new analogGyro();
+    m_encoder = new Encoder();
+    m_limitSwitch = new LimitSwitch();
+    m_ultrasonic = new Ultrasonic();
+    m_navx = new navxGyro();
     m_pneumatic.openCompressor();
    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());

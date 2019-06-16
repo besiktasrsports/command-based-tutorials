@@ -10,11 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.closeCompressor;
-import frc.robot.commands.forwardPistons;
-import frc.robot.commands.openCompressor;
-import frc.robot.commands.pistonsOff;
-import frc.robot.commands.reversePistons;
+import frc.robot.commands.NeutralizeCyclinder;
+import frc.robot.commands.ReverseCyclinder;
+import frc.robot.commands.ForwardCyclinder;
+import frc.robot.commands.NeutralizeCyclinder;
+import frc.robot.commands.ReverseCyclinder;;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -25,22 +25,16 @@ public class OI {
     public JoystickButton pistonForwardButton;
     public JoystickButton pistonReverseButton;
     public JoystickButton pistonOffButton;
-    public JoystickButton closeCompressorButton;
-    public JoystickButton openCompressorButton;
   public OI(){
     xbox = new Joystick(0);
     pistonForwardButton = new JoystickButton(xbox, 1);
     pistonReverseButton = new JoystickButton(xbox, 2);
     pistonOffButton = new JoystickButton(xbox, 3);
-    closeCompressorButton = new JoystickButton(xbox, 4);
-    openCompressorButton = new JoystickButton(xbox, 5);
 
 
-    pistonForwardButton.whenPressed(new forwardPistons());
-    pistonReverseButton.whenPressed(new reversePistons());
-    pistonOffButton.whenPressed(new pistonsOff());
-    closeCompressorButton.whenPressed(new closeCompressor());
-    openCompressorButton.whenPressed(new openCompressor());
+    pistonForwardButton.whenPressed(new ForwardCyclinder());
+    pistonReverseButton.whenPressed(new ReverseCyclinder());
+    pistonOffButton.whenPressed(new NeutralizeCyclinder());
   }
   public Joystick getXbox(){
     return xbox;
